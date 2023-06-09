@@ -118,10 +118,10 @@ Table of Contents
    3.  The facilitator performs the following in any order:
 
        a.  Publish the list of options, along with labels for each
-       option; see Section 2.1 for details.
+           option; see Section 2.1 for details.
 
        b.  Choose and publish details for a source of randomness that
-       will become available at some future time; see Section 2.2.
+           will become available at some future time; see Section 2.2.
 
        c.  Generate and publish a one-time code; see Section 2.3.
 
