@@ -78,7 +78,7 @@ Table of Contents
      2.7.  Encoding and Sorting
      2.8.  Hash Function Choice
    3.  Security Considerations
-     3.1.  Facilitators and Selecting Replacements
+     3.1.  Facilitators and Selecting Substitutes
      3.2.  Secrecy for One-Time Codes
    4.  IANA Considerations
    5.  References
@@ -111,7 +111,7 @@ Table of Contents
 
    The process for random selection is as follows:
 
-   1.  Agree to use this process.  If this fails, abort.
+   1.  Agree to use this process.
 
    2.  Appoint a facilitator, who will execute the process.
 
@@ -156,7 +156,7 @@ Table of Contents
    are made, any unexpectedly unavailable options are publicly noted as
    disqualified from selection and the process is iterated.
 
-   To select replacements for unexpectedly unavailable options, the
+   To select substitutes for unexpectedly unavailable options, the
    process is iterated from the key generation stage (Step 5 above),
    using the next one-time code; see Section 2.3.  Using a one-time code
    avoids having to wait for new randomness to become available, but
@@ -214,7 +214,7 @@ Table of Contents
 2.3.  One-Time Codes
 
    A one-time code provides a facilitator with the ability to generate
-   replacement selections in case of unexpected unavailability of one or
+   substitute selections in case of unexpected unavailability of one or
    more options.
 
    The facilitator selects a secret sequence of bytes.  This could be a
@@ -230,8 +230,8 @@ Table of Contents
    n times.
 
    How many times the secret is hashed depends on the facilitators
-   judgment of the need to find replacements.  Hashing many more times
-   than is expected to be necessary will ensure that replacements can be
+   judgment of the need to find substitutes.  Hashing many more times
+   than is expected to be necessary will ensure that substitutes can be
    produced immediately.
 
    The facilitator publishes H^n(secret) and n prior to any randomness
@@ -329,7 +329,7 @@ Table of Contents
    An appeals process or similar can help safeguard against a
    facilitator that might be untrustworthy.
 
-3.1.  Facilitators and Selecting Replacements
+3.1.  Facilitators and Selecting Substitutes
 
    A facilitator has a limited ability to influence the selection
    process.  This influence depends on the facilitator being able to
@@ -338,10 +338,10 @@ Table of Contents
    For example, if the process selects from volunteers for a task, the
    facilitator might need to check that selected volunteers are
    available to perform that task.  A facilitator will know who will be
-   selected as a replacement, if that becomes necessary.  If the
-   facilitator prefers that a replacement is selected, they could
-   attempt to force the use of a replacement, such as by not investing
-   enough effort in confirming availability.
+   selected as a substitute, if that becomes necessary.  If the
+   facilitator prefers that a substitute is selected, they could attempt
+   to force the use of a substitute, such as by not investing enough
+   effort in confirming availability.
 
    This process is not robust against this attack; it depends on some
    amount of trust in the facilitator.  If concerns exist about the
@@ -520,7 +520,7 @@ Appendix B.  Example Usage
    walls "lavenderblush", doors "darkgoldenrod", and trim
    "mediumvioletred".  However, upon an attempt to acquire the
    "lavenderblush" paint, the supplier was unable to source enough to
-   cover the needed area; a replacement was needed.
+   cover the needed area; a substitute was needed.
 
    The facilitator revealed the output of the 8th hash iteration
    (2f70f884997ce80771adbefbbbc6c71a1b921da71896c25ca0f64966bfd0c8ce),
@@ -544,26 +544,31 @@ Appendix B.  Example Usage
 
 Appendix C.  RFC 3797
 
-   This document describes what is an alternative process to that
-   described in RFC 3797 [RFC3797].  It makes no effort to replace RFC
-   3797, however it is worth noting certain key differences.
+   This document describes an alternative process to that described in
+   RFC 3797 [RFC3797].  It makes no effort to replace RFC 3797, however
+   it is worth noting certain key differences.
 
-   This process allows for more rapid replacement through the use of a
+   This process allows for more rapid substitution through the use of a
    one-time code.
 
    This process is marginally more robust against the inclusion of
    disqualified options.  The process in RFC 3797 critically depends on
-   the number of options being known; see Section 5.1 of [RFC3797],
-   which recommends that invalid options remain in the list after the
-   list is determined.  This is because RFC 3797 selects from an ordered
-   list by calculating an index from its PRF output, modulo the number
-   of remaining options.
+   the number of options being known.  See Section 5.1 of [RFC3797]
+   recommends that any option found to be invalid remains in the list
+   once the list is fixed.  This is because RFC 3797 selects from an
+   ordered list by calculating an index from its PRF output, modulo the
+   number of remaining options.
 
    In comparison, this process sorts the output of its PRF, with each
-   output being dependent only on the randomness and the label.  For the
-   process in this document, only labels need to be fixed prior to
-   learning the randomness, not the composition of the entire list of
-   options.
+   output being dependent only on the public randomness, the one-time
+   code, and the label for the option.  For the process in this
+   document, only labels need to be fixed prior to learning the
+   randomness, not the composition of the entire list of options.  This
+   makes it possible to add or remove options without affecting the
+   ordering of other options, if those changes can be justified.
+
+   This process might be considered simpler than RFC 3797, even with the
+   use of one-time codes for substitution.
 
 Acknowledgments
 

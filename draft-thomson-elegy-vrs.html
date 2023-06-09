@@ -1185,7 +1185,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-facilitators-and-selecting-" class="internal xref">Facilitators and Selecting Replacements</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-facilitators-and-selecting-" class="internal xref">Facilitators and Selecting Substitutes</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-secrecy-for-one-time-codes" class="internal xref">Secrecy for One-Time Codes</a></p>
@@ -1256,7 +1256,7 @@ as providing process in case a selected option needs to be removed for
 unexpected reasons.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">The process for random selection is as follows:<a href="#section-2-4" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-2-5">
-<li id="section-2-5.1">Agree to use this process.  If this fails, abort.<a href="#section-2-5.1" class="pilcrow">¶</a>
+<li id="section-2-5.1">Agree to use this process.<a href="#section-2-5.1" class="pilcrow">¶</a>
 </li>
         <li id="section-2-5.2">Appoint a facilitator, who will execute the process.<a href="#section-2-5.2" class="pilcrow">¶</a>
 </li>
@@ -1300,11 +1300,11 @@ subject to external influence, such as a volunteer becoming unavailable.  In
 that case, the complete set of selections is produced, applying any constraints
 as above.  After all selections are made, any unexpectedly unavailable options
 are publicly noted as disqualified from selection and the process is iterated.<a href="#section-2-8" class="pilcrow">¶</a></p>
-<p id="section-2-9">To select replacements for unexpectedly unavailable options, the process is
+<p id="section-2-9">To select substitutes for unexpectedly unavailable options, the process is
 iterated from the key generation stage (Step 5 above), using the next one-time
 code; see <a href="#otp" class="auto internal xref">Section 2.3</a>.  Using a one-time code avoids having to wait for new
 randomness to become available, but might give the facilitator some influence
-over the outcome; <a href="#replacement" class="auto internal xref">Section 3.1</a> explains in more detail.  Alternatively, the
+over the outcome; <a href="#substitution" class="auto internal xref">Section 3.1</a> explains in more detail.  Alternatively, the
 entire process can be repeated.<a href="#section-2-9" class="pilcrow">¶</a></p>
 <div id="labels">
 <section id="section-2.1">
@@ -1354,7 +1354,7 @@ of the lotteries are run.<a href="#section-2.2-5" class="pilcrow">¶</a></p>
         <h3 id="name-one-time-codes">
 <a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-one-time-codes" class="section-name selfRef">One-Time Codes</a>
         </h3>
-<p id="section-2.3-1">A one-time code provides a facilitator with the ability to generate replacement
+<p id="section-2.3-1">A one-time code provides a facilitator with the ability to generate substitute
 selections in case of unexpected unavailability of one or more options.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
 <p id="section-2.3-2">The facilitator selects a secret sequence of bytes.  This could be a string that
 is UTF-8 encoded as is done for labels.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
@@ -1366,8 +1366,8 @@ generating one-time passwords.<a href="#section-2.3-3" class="pilcrow">¶</a></p
 H(H(secret))</code> is hashing twice.  <code>H^n = H(H^{n-1}(secret))</code> is hashing <code>n</code>
 times.<a href="#section-2.3-4" class="pilcrow">¶</a></p>
 <p id="section-2.3-5">How many times the secret is hashed depends on the facilitators judgment of the
-need to find replacements.  Hashing many more times than is expected to be
-necessary will ensure that replacements can be produced immediately.<a href="#section-2.3-5" class="pilcrow">¶</a></p>
+need to find substitutes.  Hashing many more times than is expected to be
+necessary will ensure that substitutes can be produced immediately.<a href="#section-2.3-5" class="pilcrow">¶</a></p>
 <p id="section-2.3-6">The facilitator publishes <code>H^n(secret)</code> and <code>n</code> prior to any randomness being
 available.<a href="#section-2.3-6" class="pilcrow">¶</a></p>
 <p id="section-2.3-7">Once randomness is available the first iteration of the selection process uses
@@ -1475,20 +1475,20 @@ Given the use of one-time codes in this process, the only attacker who is in any
 position to take advantage of this is the facilitator.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">An appeals process or similar can help safeguard against a facilitator that
 might be untrustworthy.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<div id="replacement">
+<div id="substitution">
 <section id="section-3.1">
         <h3 id="name-facilitators-and-selecting-">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-facilitators-and-selecting-" class="section-name selfRef">Facilitators and Selecting Replacements</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-facilitators-and-selecting-" class="section-name selfRef">Facilitators and Selecting Substitutes</a>
         </h3>
 <p id="section-3.1-1">A facilitator has a limited ability to influence the selection process. This
 influence depends on the facilitator being able to cause a selected option to
 become disqualified somehow.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1-2">For example, if the process selects from volunteers for a task, the facilitator
 might need to check that selected volunteers are available to perform that task.
-A facilitator will know who will be selected as a replacement, if that becomes
-necessary.  If the facilitator prefers that a replacement is selected, they
-could attempt to force the use of a replacement, such as by not investing enough
-effort in confirming availability.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+A facilitator will know who will be selected as a substitute, if that becomes
+necessary.  If the facilitator prefers that a substitute is selected, they could
+attempt to force the use of a substitute, such as by not investing enough effort
+in confirming availability.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 <p id="section-3.1-3">This process is not robust against this attack; it depends on some amount of
 trust in the facilitator.  If concerns exist about the impartiality of the
 facilitator, the entire process can be re-run if an option becomes unavailable.
@@ -1505,7 +1505,7 @@ the facilitator against expedience.<a href="#section-3.1-3" class="pilcrow">¶</
 <p id="section-3.2-1">The facilitator needs to keep the value they choose for generating one-time
 codes a secret until the process completes and all selections are made.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2">An attacker that obtains this secret -- or any unused one-time code -- gains the
-foreknowledge available to the facilitator described in <a href="#replacement" class="auto internal xref">Section 3.1</a>.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+foreknowledge available to the facilitator described in <a href="#substitution" class="auto internal xref">Section 3.1</a>.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1701,7 +1701,7 @@ with the hashes truncated for formatting reasons):<a href="#appendix-B-5" class=
 <p id="appendix-B-7">As blue was disqualified by prior agreement, the allocation was: walls
 "lavenderblush", doors "darkgoldenrod", and trim "mediumvioletred".  However, upon an
 attempt to acquire the "lavenderblush" paint, the supplier was unable to source
-enough to cover the needed area; a replacement was needed.<a href="#appendix-B-7" class="pilcrow">¶</a></p>
+enough to cover the needed area; a substitute was needed.<a href="#appendix-B-7" class="pilcrow">¶</a></p>
 <p id="appendix-B-8">The facilitator revealed the output of the 8th hash iteration
 (2f70f884997ce80771adbefbbbc6c71a1b921da71896c25ca0f64966bfd0c8ce), producing:<a href="#appendix-B-8" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-B-9">
@@ -1726,21 +1726,25 @@ that was a consquence of strident complaints from the neighbors.<a href="#append
       <h2 id="name-rfc-3797">
 <a href="#appendix-C" class="section-number selfRef">Appendix C. </a><a href="#name-rfc-3797" class="section-name selfRef">RFC 3797</a>
       </h2>
-<p id="appendix-C-1">This document describes what is an alternative process to that described in RFC
-3797 <span>[<a href="#RFC3797" class="cite xref">RFC3797</a>]</span>.  It makes no effort to replace RFC 3797, however it is worth
+<p id="appendix-C-1">This document describes an alternative process to that described in RFC 3797
+<span>[<a href="#RFC3797" class="cite xref">RFC3797</a>]</span>.  It makes no effort to replace RFC 3797, however it is worth
 noting certain key differences.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
-<p id="appendix-C-2">This process allows for more rapid replacement through the use of a one-time
+<p id="appendix-C-2">This process allows for more rapid substitution through the use of a one-time
 code.<a href="#appendix-C-2" class="pilcrow">¶</a></p>
 <p id="appendix-C-3">This process is marginally more robust against the inclusion of disqualified
 options.  The process in RFC 3797 critically depends on the number of options
-being known; see <span><a href="https://rfc-editor.org/rfc/rfc3797#section-5.1" class="relref">Section 5.1</a> of [<a href="#RFC3797" class="cite xref">RFC3797</a>]</span>, which recommends that invalid
-options remain in the list after the list is determined.  This is because RFC
-3797 selects from an ordered list by calculating an index from its PRF output,
-modulo the number of remaining options.<a href="#appendix-C-3" class="pilcrow">¶</a></p>
+being known. See <span><a href="https://rfc-editor.org/rfc/rfc3797#section-5.1" class="relref">Section 5.1</a> of [<a href="#RFC3797" class="cite xref">RFC3797</a>]</span> recommends that any option found to
+be invalid remains in the list once the list is fixed.  This is because RFC 3797
+selects from an ordered list by calculating an index from its PRF output, modulo
+the number of remaining options.<a href="#appendix-C-3" class="pilcrow">¶</a></p>
 <p id="appendix-C-4">In comparison, this process sorts the output of its PRF, with each output being
-dependent only on the randomness and the label.  For the process in this
-document, only labels need to be fixed prior to learning the randomness, not the
-composition of the entire list of options.<a href="#appendix-C-4" class="pilcrow">¶</a></p>
+dependent only on the public randomness, the one-time code, and the label for
+the option.  For the process in this document, only labels need to be fixed
+prior to learning the randomness, not the composition of the entire list of
+options.  This makes it possible to add or remove options without affecting the
+ordering of other options, if those changes can be justified.<a href="#appendix-C-4" class="pilcrow">¶</a></p>
+<p id="appendix-C-5">This process might be considered simpler than RFC 3797, even with the use of
+one-time codes for substitution.<a href="#appendix-C-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="acknowledgments">
