@@ -15,10 +15,10 @@
 <meta content="draft-thomson-elegy-vrs-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.17.3
-    Python 3.11.3
+    Python 3.11.4
     appdirs 1.4.4
     ConfigArgParse 1.5.3
-    google-i18n-address 3.0.0
+    google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.2
@@ -1052,7 +1052,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson</td>
-<td class="center">Expires 11 December 2023</td>
+<td class="center">Expires 24 December 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-thomson-elegy-vrs-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-06-09" class="published">9 June 2023</time>
+<time datetime="2023-06-22" class="published">22 June 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-12-11">11 December 2023</time></dd>
+<dd class="expires"><time datetime="2023-12-24">24 December 2023</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,7 +1120,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 December 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 December 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1245,9 +1245,9 @@ selection might be acceptable, but any potential for bias might not be.<a href="
 influence by any party can be useful in such situations.  This document
 describes one such process.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">The IETF Nominating Committee <span>[<a href="#NOMCOM" class="cite xref">NOMCOM</a>]</span> is an example of where a
-selection of ten people from a larger pool of eligible volunteers.  As the
-selected group is entrusted with considerable responsibility, there is a need to
-avoid any risk of bias in the outcome.<a href="#section-1-3" class="pilcrow">¶</a></p>
+random selection is necessary.  Ten people are drawn from a larger pool of
+eligible volunteers.  As the selected group is entrusted with considerable
+responsibility, there is a need to avoid any risk of bias in the outcome.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">This document describes a process that is an alternative to RFC 3797
 <span>[<a href="#RFC3797" class="cite xref">RFC3797</a>]</span>.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
@@ -1409,7 +1409,7 @@ SHA-256 is used to extract entropy and produce a pseudorandom key (or PRK).  The
 or <code>IKM</code> is set to the bytes from the randomness sources.<a href="#section-2.4-2" class="pilcrow">¶</a></p>
 <div class="lang-pseudocode sourcecode" id="section-2.4-3">
 <pre>
-PRF = HKDF-Extract(salt=one-time-code, IKM=randomness)
+PRK = HKDF-Extract(salt=one-time-code, IKM=randomness)
 </pre><a href="#section-2.4-3" class="pilcrow">¶</a>
 </div>
 <p id="section-2.4-4">This produces a <code>PRK</code> value.<a href="#section-2.4-4" class="pilcrow">¶</a></p>
@@ -1426,10 +1426,11 @@ is taken from the previous step (<a href="#extract" class="auto internal xref">S
 as the <code>info</code> input; and, the output length, <code>L</code>, is 32 (measured in bytes).<a href="#section-2.5-1" class="pilcrow">¶</a></p>
 <div class="lang-pseudocode sourcecode" id="section-2.5-2">
 <pre>
-order = HKDF-Expand(PRK, info=label, L=32)
+position = HKDF-Expand(PRK, info=label, L=32)
 </pre><a href="#section-2.5-2" class="pilcrow">¶</a>
 </div>
-<p id="section-2.5-3">This produces a value, <code>order</code>, that can be sorted.<a href="#section-2.5-3" class="pilcrow">¶</a></p>
+<p id="section-2.5-3">This produces a value, <code>position</code>, that can be sorted to produce a final
+ordering.<a href="#section-2.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="announcements-and-timing">

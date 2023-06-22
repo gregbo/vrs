@@ -4,8 +4,8 @@
 
 NomCom Eligibility Update                                     M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                               9 June 2023
-Expires: 11 December 2023
+Intended status: Informational                              22 June 2023
+Expires: 24 December 2023
 
 
                  A Verifiable Random Selection Process
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 December 2023.
+   This Internet-Draft will expire on 24 December 2023.
 
 Copyright Notice
 
@@ -104,9 +104,10 @@ Table of Contents
    This document describes one such process.
 
    The IETF Nominating Committee [NOMCOM] is an example of where a
-   selection of ten people from a larger pool of eligible volunteers.
-   As the selected group is entrusted with considerable responsibility,
-   there is a need to avoid any risk of bias in the outcome.
+   random selection is necessary.  Ten people are drawn from a larger
+   pool of eligible volunteers.  As the selected group is entrusted with
+   considerable responsibility, there is a need to avoid any risk of
+   bias in the outcome.
 
    This document describes a process that is an alternative to RFC 3797
    [RFC3797].
@@ -280,7 +281,7 @@ Table of Contents
    one-time code, the input keying material or IKM is set to the bytes
    from the randomness sources.
 
-   PRF = HKDF-Extract(salt=one-time-code, IKM=randomness)
+   PRK = HKDF-Extract(salt=one-time-code, IKM=randomness)
 
    This produces a PRK value.
 
@@ -292,9 +293,10 @@ Table of Contents
    (Section 2.4); the label for each option is used as the info input;
    and, the output length, L, is 32 (measured in bytes).
 
-   order = HKDF-Expand(PRK, info=label, L=32)
+   position = HKDF-Expand(PRK, info=label, L=32)
 
-   This produces a value, order, that can be sorted.
+   This produces a value, position, that can be sorted to produce a
+   final ordering.
 
 2.6.  Announcements and Timing
 
